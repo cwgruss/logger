@@ -82,6 +82,7 @@ export class Logger implements Printer, LoggerAPI {
   log(message: string): void {
     this.print('log', message);
   }
+
   warn(message: string): void {
     this.print('warn', message);
   }
