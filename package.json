@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "test": "mocha --require test/ts-node-register --recursive test/**/*.spec.ts",
+    "test:coverage": "nyc npm test",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
