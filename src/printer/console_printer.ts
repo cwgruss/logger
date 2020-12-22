@@ -1,7 +1,7 @@
 import {LogLevel} from '../logger';
 import {Printer} from './printer';
 
-type ConsolePrintFunction = (message: any, optionalParams?: any[]) => void;
+type ConsolePrintFunction = typeof console.log;
 
 export class ConsolePrinter implements Printer {
   print(level: LogLevel, message: string): void {
