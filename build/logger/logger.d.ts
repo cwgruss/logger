@@ -1,7 +1,4 @@
-import { LogLevel } from './log_level';
-export interface Printer {
-    print(level: LogLevel, message: string): void;
-}
+import { Printer } from '../printer/printer';
 export interface LoggerAPI {
     /**
      * Clears the console of text
@@ -28,10 +25,10 @@ export interface LoggerAPI {
      */
     warn(message: string): void;
 }
-export declare class Logger implements Printer, LoggerAPI {
+export declare class Logger implements LoggerAPI {
+    private _printer;
     readonly name: string;
-    constructor(name: string);
-    print(level: LogLevel, message: string): void;
+    constructor(_printer: Printer, name: string);
     clear(): void;
     debug(message: string): void;
     error(message: string): void;

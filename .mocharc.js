@@ -12,6 +12,6 @@ module.exports = {
   slow: 75,
   timeout: 2000,
   ui: 'bdd',
-  'watch-files': ['src/**/*.ts', 'test/**/*.js'],
+  'watch-files': ['src/**/*.ts', 'test/**/*.ts'],
   'watch-ignore': ['node_modules']
 };
