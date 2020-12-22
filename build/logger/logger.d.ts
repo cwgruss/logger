@@ -1,4 +1,4 @@
-import { Printer } from '../printer/printer';
+import { ConsolePrinter } from '../printer/console_printer';
 export interface LoggerAPI {
     /**
      * Clears the console of text
@@ -12,6 +12,10 @@ export interface LoggerAPI {
      * Outputs an error message to the console with the log level `error`.
      */
     error(message: string): void;
+    /**
+     * Outputs a fatal error message to the console with the log level `error`.
+     */
+    fatal(message: string): void;
     /**
      * Outputs an informative message with the log level `info`.
      */
@@ -28,10 +32,11 @@ export interface LoggerAPI {
 export declare class Logger implements LoggerAPI {
     private _printer;
     readonly name: string;
-    constructor(_printer: Printer, name: string);
+    constructor(_printer: ConsolePrinter, name: string);
     clear(): void;
     debug(message: string): void;
     error(message: string): void;
+    fatal(message: string): void;
     info(message: string): void;
     log(message: string): void;
     warn(message: string): void;

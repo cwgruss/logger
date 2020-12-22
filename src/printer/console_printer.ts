@@ -1,9 +1,13 @@
 import {LogLevel} from '../logger';
-import {Printer} from './printer';
+import {Clearable, Printer} from './printer';
 
 type ConsolePrintFunction = typeof console.log;
 
-export class ConsolePrinter implements Printer {
+export class ConsolePrinter implements Clearable, Printer {
+  clear(): void {
+    console.clear();
+  }
+
   print(level: LogLevel, message: string): void {
     let consoleFunc: ConsolePrintFunction;
     switch (level) {

@@ -1,4 +1,5 @@
 import {LogLevel} from '../log_level';
+import {ConsolePrinter} from '../printer/console_printer';
 import {Printer} from '../printer/printer';
 
 export interface LoggerAPI {
@@ -18,6 +19,11 @@ export interface LoggerAPI {
   error(message: string): void;
 
   /**
+   * Outputs a fatal error message to the console with the log level `error`.
+   */
+  fatal(message: string): void;
+
+  /**
    * Outputs an informative message with the log level `info`.
    */
   info(message: string): void;
@@ -34,10 +40,10 @@ export interface LoggerAPI {
 }
 
 export class Logger implements LoggerAPI {
-  constructor(private _printer: Printer, public readonly name: string) {}
+  constructor(private _printer: ConsolePrinter, public readonly name: string) {}
 
   clear(): void {
-    throw new Error('Method not implemented.');
+    this._printer.clear();
   }
 
   debug(message: string): void {
@@ -46,6 +52,10 @@ export class Logger implements LoggerAPI {
 
   error(message: string): void {
     this._printer.print('error', message);
+  }
+
+  fatal(message: string): void {
+    this._printer.print('fatal', message);
   }
 
   info(message: string): void {

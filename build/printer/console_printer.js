@@ -2,29 +2,37 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConsolePrinter = void 0;
 class ConsolePrinter {
+    clear() {
+        console.clear();
+    }
     print(level, message) {
+        let consoleFunc;
         switch (level) {
             case 'log': {
-                console.log(message);
-                return;
+                consoleFunc = console.log.bind(console);
+                break;
             }
             case 'info': {
-                console.info(message);
-                return;
+                consoleFunc = console.info.bind(console);
+                break;
             }
             case 'warn': {
-                console.warn(message);
-                return;
+                consoleFunc = console.warn.bind(console);
+                break;
             }
             case 'error': {
-                console.error(message);
-                return;
+                consoleFunc = console.error.bind(console);
+                break;
             }
             case 'fatal': {
-                console.error(message);
-                return;
+                consoleFunc = console.error.bind(console);
+                break;
+            }
+            default: {
+                consoleFunc = console.debug.bind(console);
             }
         }
+        consoleFunc(message);
     }
 }
 exports.ConsolePrinter = ConsolePrinter;

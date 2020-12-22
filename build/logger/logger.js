@@ -7,13 +7,16 @@ class Logger {
         this.name = name;
     }
     clear() {
-        throw new Error('Method not implemented.');
+        this._printer.clear();
     }
     debug(message) {
         this._printer.print('debug', message);
     }
     error(message) {
         this._printer.print('error', message);
+    }
+    fatal(message) {
+        this._printer.print('fatal', message);
     }
     info(message) {
         this._printer.print('info', message);
