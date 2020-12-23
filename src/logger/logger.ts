@@ -1,6 +1,4 @@
-import {LogLevel} from '../log_level';
 import {ConsolePrinter} from '../printer/console_printer';
-import {Printer} from '../printer/printer';
 
 export interface LoggerAPI {
   /**

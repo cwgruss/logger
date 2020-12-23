@@ -2,7 +2,6 @@ import {Logger} from '../../src/logger/logger';
 import {ConsolePrinter} from '../../src/printer/console_printer';
 import {expect} from 'chai';
 import {assert, createSandbox, SinonSpy} from 'sinon';
-import {clear} from 'console';
 
 describe('Logger', () => {
   let logSpy: SinonSpy;
